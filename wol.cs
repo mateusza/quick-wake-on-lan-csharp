@@ -1,6 +1,13 @@
 using System;
-using System.Net.NetworkInformation;
+using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
+
+[assembly: AssemblyTitle("Wake-On-LAN Magic Packet Generator")]
+[assembly: AssemblyProduct("Wake-On-LAN")]
+[assembly: AssemblyCopyright("© 2017 Mateusz Adamowski")]
+[assembly: AssemblyVersion("0.0.2.0")]
+[assembly: AssemblyFileVersion("0.0.2.0")]
 
 public class WakeOnLan_Tool {
 
@@ -8,7 +15,7 @@ public class WakeOnLan_Tool {
     static readonly byte[] MAC = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
     public static int Main(){
-        var bcast = new System.Net.IPEndPoint( new System.Net.IPAddress( 0xffffffff ), 9 );
+        var bcast = new IPEndPoint( new IPAddress( 0xffffffff ), 9 );
 
         var magicpacket = new byte[ 17 * 6 ];
 
