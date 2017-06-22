@@ -2,12 +2,20 @@
 ![Icon](icon/wol-green.ico)
 
 ## building
-Before building, change the MAC in a source code (`wol.cs`).
+Before building, change the MAC in the source code (`wol.cs`).
 
 ```
-static readonly byte[] MAC = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-// your MAC here:                ^^    ^^    ^^    ^^    ^^    ^^
+    public static string MAC = "00:01:a2:a3:04:05";
+    // put your MAC here:       ^^^^^^^^^^^^^^^^^
 ```
+
+Following notations are supported:
+* `0001a2a30405`
+* `0001A2A30405`
+* `00:01:a2:a3:04:05`
+* `00:01:A2:A3:04:05`
+* `00-01-a2-a3-04-05`
+* `00-01-A2-A3-04-05`
 
 ### Windows
 
@@ -17,7 +25,12 @@ Requires `csc.exe` which is shipped with `Microsoft.NET` runtimes. No Visual Stu
 X:\dev\wol> build-win.bat
 ```
 
-(Defaults to `v4.0.30319` release, but this can be changed in the build script.)
+Or just double click the `build-win.bat` file.
+
+Tested with:
+* `v4.0.30319` (default)
+* `v3.5`
+* `v2.0.50727`
 
 ### Linux
 
